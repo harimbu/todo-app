@@ -1,13 +1,117 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+}
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.todo_input {
+  padding: 16px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.todo_list {
+  margin: 20px 0;
+}
+
+.todo_item {
+  padding: 18px 4px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo_item .left div:first-child {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.todo_item .left div:last-child {
+  font-size: 22px;
+}
+
+.todo_item .right div:first-child {
+  margin-right: 20px;
+}
+
+.todo_item .left,
+.todo_item .right {
+  display: flex;
+  align-items: center;
+}
+
+.todo_item .right div {
+  cursor: pointer;
+}
+
+.todo_item.done {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo_bottom {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 20px;
+}
+
+button {
+  padding: 4px 8px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 40px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.1);
+  min-width: 320px;
+  width: 400px;
+  display: none;
+}
+
+.modal h2 {
+  font-weight: normal;
+}
+
+.modal input {
+  padding: 16px;
+  border: 1px solid #999;
+  width: 100%;
+  font-size: 18px;
+}
+
+.modal.show {
+  display: flex;
 }
