@@ -2,4 +2,4 @@
 
 ### `firebase hosting`
 
-[https://yarn-todo.web.app/]
+https://yarn-todo.web.app
