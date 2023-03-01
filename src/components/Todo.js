@@ -3,7 +3,7 @@ import { db } from '../firebase'
 import { doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import { useState } from 'react'
 
-export default function Todo({ todo }) {
+export default function Todo({ todo, isEdit }) {
   const [modal, setModal] = useState(false)
   const [title, setTitle] = useState(todo.title)
 
@@ -42,19 +42,26 @@ export default function Todo({ todo }) {
   return (
     <li className={todo.isDone ? 'todo_item done' : 'todo_item'}>
       <div className="left">
-        <div onClick={toggleDone}>
-          {todo.isDone ? <MdDone /> : <MdCheckBoxOutlineBlank />}
-        </div>
+        {isEdit ? (
+          <div onClick={toggleDone}>
+            {todo.isDone ? <MdDone /> : <MdCheckBoxOutlineBlank />}
+          </div>
+        ) : (
+          <div>{todo.isDone ? <MdDone /> : <MdCheckBoxOutlineBlank />}</div>
+        )}
         <div>{todo.title}</div>
       </div>
-      <div className="right">
-        <div onClick={openModal}>
-          <MdEdit />
+
+      {isEdit && (
+        <div className="right">
+          <div onClick={openModal}>
+            <MdEdit />
+          </div>
+          <div onClick={removeTodo}>
+            <MdClose />
+          </div>
         </div>
-        <div onClick={removeTodo}>
-          <MdClose />
-        </div>
-      </div>
+      )}
 
       <div className={modal ? 'modal show' : 'modal'}>
         <h2>수정하기</h2>
